@@ -51,6 +51,8 @@ public class Tut4Sender {
 		builder.append(key).append(' ');
 		builder.append(this.count.incrementAndGet());
 		String message = builder.toString();
+		System.out.println("Host name: "+template.getConnectionFactory().getHost());
+		System.out.println("Port: " + template.getConnectionFactory().getPort());
 		template.convertAndSend(direct.getName(), key, message);
 		System.out.println(" [x] Sent '" + message + "'");
 	}
