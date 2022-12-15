@@ -1,0 +1,5 @@
+spring:
+  rabbitmq:
+    host: 10.0.0.10
+    username: admin
+    password: securepassword
