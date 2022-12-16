@@ -1,7 +1,0 @@
-spring:
-  rabbitmq:
-    host: ${HOST:10.0.0.6}
-    #rabbitmqcluster.default.svc.cluster.local
-    port: ${PORT:31297} 
-    username: ${USER:guest}
-    password: ${PASS:guest}
