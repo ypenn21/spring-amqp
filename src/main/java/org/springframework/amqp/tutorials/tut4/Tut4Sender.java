@@ -63,7 +63,9 @@ public class Tut4Sender {
 		String queue = "shovel_outcome_queue";
 		Channel channel = connection.createChannel(true);
 		try {
+			System.out.println(" [x] Sent to queue '" + queue + "'");
 			channel.basicPublish("", queue, null, message.getBytes(StandardCharsets.UTF_8));
+			System.out.println(" [x] Sent completed");
 		} catch (IOException e) {
 			System.out.println(" yanni has [x] big problems");
 			e.printStackTrace();
@@ -71,7 +73,6 @@ public class Tut4Sender {
 		System.out.println(" [x] Sent '" + message + "'");
 
 //		template.convertAndSend(direct.getName(), key, message);
-		System.out.println(" [x] Sent '" + message + "'");
 	}
 
 }
