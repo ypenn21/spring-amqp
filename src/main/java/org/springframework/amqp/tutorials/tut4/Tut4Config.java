@@ -35,7 +35,7 @@ public class Tut4Config {
 
 	@Bean
 	public DirectExchange direct() {
-		return new DirectExchange("tut.direct");
+		return new DirectExchange("shovel_exchange");
 	}
 
 	@Profile("receiver")
