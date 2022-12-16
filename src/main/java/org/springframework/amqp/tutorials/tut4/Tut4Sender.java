@@ -60,7 +60,7 @@ public class Tut4Sender {
 		System.out.println("Host name: "+template.getConnectionFactory().getHost());
 		System.out.println("Port: " + template.getConnectionFactory().getPort());
 		Connection connection = factory.createConnection();
-		String queue = "shovel_outcome_queue";
+		String queue = "shovel_outcome_queue12345";
 		Channel channel = connection.createChannel(true);
 		try {
 			System.out.println(" [x] Sent to queue '" + queue + "'");
@@ -72,7 +72,7 @@ public class Tut4Sender {
 		}
 		System.out.println(" [x] Sent '" + message + "'");
 
-//		template.convertAndSend(direct.getName(), key, message);
+		template.convertAndSend(direct.getName(), "shovel_key", message);
 	}
 
 }
