@@ -59,20 +59,21 @@ public class Tut4Sender {
 		ConnectionFactory factory = template.getConnectionFactory();
 		System.out.println("Host name: "+template.getConnectionFactory().getHost());
 		System.out.println("Port: " + template.getConnectionFactory().getPort());
-		Connection connection = factory.createConnection();
-		String queue = "shovel_outcome_queue12345";
-		Channel channel = connection.createChannel(true);
-		try {
-			System.out.println(" [x] Sent to queue '" + queue + "'");
-			channel.basicPublish("", queue, null, message.getBytes(StandardCharsets.UTF_8));
-			System.out.println(" [x] Sent completed");
-		} catch (IOException e) {
-			System.out.println(" yanni has [x] big problems");
-			e.printStackTrace();
-		}
-		System.out.println(" [x] Sent '" + message + "'");
+//		Connection connection = factory.createConnection();
+//		String queue = "shovel_outcome_queue12345";
+//		Channel channel = connection.createChannel(true);
+//		try {
+//			System.out.println(" [x] Sent to queue '" + queue + "'");
+//			channel.basicPublish("", queue, null, message.getBytes(StandardCharsets.UTF_8));
+//			System.out.println(" [x] Sent completed");
+//		} catch (IOException e) {
+//			System.out.println(" yanni has [x] big problems");
+//			e.printStackTrace();
+//		}
+		System.out.println(" [x] About to Send '" + message + "'");
 
 		template.convertAndSend(direct.getName(), "shovel_key", message);
+		System.out.println(" [x] Msg Sent Successfully ");
 	}
 
 }
