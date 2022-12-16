@@ -51,9 +51,21 @@ public class Tut4Sender {
 		builder.append(key).append(' ');
 		builder.append(this.count.incrementAndGet());
 		String message = builder.toString();
+		ConnectionFactory factory = template.getConnectionFactory();
 		System.out.println("Host name: "+template.getConnectionFactory().getHost());
 		System.out.println("Port: " + template.getConnectionFactory().getPort());
-		template.convertAndSend(direct.getName(), key, message);
+		Connection connection = factory.createConnection();
+		String queue = "hello";
+		Channel channel = connection.createChannel(true);
+		try {
+			channel.basicPublish("", queue, null, message.getBytes(StandardCharsets.UTF_8));
+		} catch (IOException e) {
+			System.out.println(" yanni has [x] big problems");
+			e.printStackTrace();
+		}
+		System.out.println(" [x] Sent '" + message + "'");
+
+//		template.convertAndSend(direct.getName(), key, message);
 		System.out.println(" [x] Sent '" + message + "'");
 	}
 
