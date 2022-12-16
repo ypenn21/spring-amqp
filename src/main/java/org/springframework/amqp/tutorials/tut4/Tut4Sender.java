@@ -44,7 +44,8 @@ public class Tut4Sender {
 
 	AtomicInteger count = new AtomicInteger(0);
 
-	private final String[] keys = {"orange", "black", "green"};
+	private static final String[] keys = {"orange", "black", "green"};
+	private static final String KEY = "shovel_key";
 
 	@Scheduled(fixedDelay = 1000, initialDelay = 500)
 	public void send() {
@@ -72,7 +73,7 @@ public class Tut4Sender {
 //		}
 		System.out.println(" [x] About to Send '" + message + "'");
 
-		template.convertAndSend(direct.getName(), "shovel_key", message);
+		template.convertAndSend(direct.getName(), KEY, message);
 		System.out.println(" [x] Msg Sent Successfully ");
 	}
 
