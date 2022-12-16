@@ -55,7 +55,7 @@ public class Tut4Sender {
 		System.out.println("Host name: "+template.getConnectionFactory().getHost());
 		System.out.println("Port: " + template.getConnectionFactory().getPort());
 		Connection connection = factory.createConnection();
-		String queue = "hello";
+		String queue = "shovel_outcome_queue";
 		Channel channel = connection.createChannel(true);
 		try {
 			channel.basicPublish("", queue, null, message.getBytes(StandardCharsets.UTF_8));
