@@ -34,11 +34,12 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class Tut4Config {
 
-	@Value("shovel_exchange")
-	public static String SHOVEL;
+	@Value("${shovel.exchange}")
+	private String SHOVEL;
 
 	@Bean
 	public DirectExchange direct() {
+		System.out.println("SHOVEL exchange value: "+SHOVEL);
 		return new DirectExchange(SHOVEL);
 	}
 

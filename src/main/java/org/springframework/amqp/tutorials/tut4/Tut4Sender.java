@@ -21,6 +21,7 @@ import org.springframework.amqp.rabbit.connection.Connection;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.IOException;
@@ -40,6 +41,9 @@ public class Tut4Sender {
 	@Autowired
 	private DirectExchange direct;
 
+	@Value("${shovel.exchange}")
+	private String shovel;
+
 	AtomicInteger index = new AtomicInteger(0);
 
 	AtomicInteger count = new AtomicInteger(0);
@@ -58,6 +62,7 @@ public class Tut4Sender {
 		builder.append(this.count.incrementAndGet());
 		String message = builder.toString();
 		ConnectionFactory factory = template.getConnectionFactory();
+		System.out.println("shovel:"+shovel);
 		System.out.println("Host name: "+template.getConnectionFactory().getHost());
 		System.out.println("Port: " + template.getConnectionFactory().getPort());
 //		Connection connection = factory.createConnection();

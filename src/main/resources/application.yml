@@ -1,11 +1,17 @@
 spring:
   profiles:
     active: usage_message
-shovel_exchange: ${SHOVEL:shovel_exchange}
+  rabbitmq:
+    host: ${HOST:10.0.0.10}
+    #rabbitmqcluster.default.svc.cluster.local
+    port: ${PORT:5672}
+    username: ${USER:guest}
+    password: ${PASS:guest}
+shovel:
+  exchange: ${SHOVEL:cloud_shovel_exchange}
 logging:
   level:
     org: ERROR
-
 tutorial:
   client:
     duration: 10000
