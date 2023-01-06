@@ -1,7 +1,7 @@
 spring:
   profiles:
     active: usage_message
-
+shovel_exchange: ${SHOVEL:shovel_exchange}
 logging:
   level:
     org: ERROR

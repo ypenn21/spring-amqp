@@ -20,6 +20,7 @@ import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -33,9 +34,12 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class Tut4Config {
 
+	@Value("shovel_exchange")
+	public static String SHOVEL;
+
 	@Bean
 	public DirectExchange direct() {
-		return new DirectExchange("shovel_exchange");
+		return new DirectExchange(SHOVEL);
 	}
 
 	@Profile("receiver")

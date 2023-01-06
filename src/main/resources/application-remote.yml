@@ -1,7 +1,7 @@
 spring:
   rabbitmq:
-    host: ${HOST:10.0.0.6}
+    host: ${HOST:10.0.0.10}
     #rabbitmqcluster.default.svc.cluster.local
-    port: ${PORT:31297} 
-    username: ${USER:guest}
-    password: ${PASS:guest}
+    port: ${PORT:5672}
+    username: ${USER:admin}
+    password: ${PASS:securepassword}
