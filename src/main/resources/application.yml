@@ -5,8 +5,8 @@ spring:
     host: ${HOST:10.0.0.10}
     #rabbitmqcluster.default.svc.cluster.local
     port: ${PORT:5672}
-    username: ${USER:guest}
-    password: ${PASS:guest}
+    username: ${USER:admin}
+    password: ${PASS:securepassword}
 shovel:
   exchange: ${SHOVEL:cloud_shovel_exchange}
 logging:
